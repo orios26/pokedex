@@ -1,23 +1,11 @@
-import React, {Componenet} from 'react';
+import React from 'react';
 import './styles/PokeCell.css';
+import sprites from '../assets/sprites.png';
 
-
-class PokeCell extends React.Component{
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    console.log(this.props.id);
-  }
-
-  render() {
-    return (
-      <button className="poke-cell" onClick={this.handleClick} style={this.props.style}>
-      </button>
-    );
-  }
-};
+const PokeCell = ({ pokeClass, handleOnClick }) => {
+  const {id, backgroundPosition } = pokeClass;
+  const style = { backgroundImage: `url(${sprites})`, backgroundPosition };
+  return <button className='poke-cell' style={style} onClick={handleOnClick.bind(this, id)}></button>
+}
 
 export default PokeCell;
